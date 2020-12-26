@@ -1,0 +1,81 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.2",
+      "title": "PDF Generator",
+      "description": "PDF Generator Service",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "basePath": "/pdf",
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json",
+      "application/octet-stream"
+    ],
+    "paths": {
+      "/generate": {
+        "get": {
+          "description": "Generate PDF from a given url",
+          "tags": [
+            "APIs"
+          ],
+          "parameters": [
+            {
+              "in": "query",
+              "name": "url",
+              "description": "Url to be generated to PDF",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "PDF was generated successfully",
+              "content": {
+                  "application/octet-stream":{
+                    "schema" : {
+                        "type": "string",
+                        "format": "binary"
+                    } 
+                  }
+               }
+            },
+            "500": {
+                "description": "Error occurred in PDF generation",
+                "schema" : {
+                      "error": "string"
+                } 
+            }
+          }
+        }
+      },
+      "/healthCheck": {
+        "get": {
+          "tags": [
+            "APIs"
+          ],
+          "description": "Health check for the service",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Service is healthy",
+              "schema": {
+                "status": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }

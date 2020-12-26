@@ -1,0 +1,28 @@
+{
+  "name": "pdf-generator-service",
+  "version": "1.0.3",
+  "description": "A micro service to generate pdf from a given url",
+  "author": "Chen Arviv <chenrv1@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "standard": {},
+  "scripts": {
+    "start": "set NODE_ENV=local&&node src/index.js",
+    "start:dev-prod": "node src/index.js"
+  },
+  "keywords": [
+    "express",
+    "microservice"
+  ],
+  "dependencies": {
+    "express": "^4.14.0",
+    "helmet": "^3.4.0",
+    "http-graceful-shutdown": "^2.2.1",
+    "http-status": "^0.2.5",
+    "morgan": "^1.7.0",
+    "puppeteer": "^1.11.0",
+    "logger-middleware": "^1.0.2",
+    "swagger-ui-express": "^4.0.6",
+    "urldecode": "^1.0.1"
+  }
+}
